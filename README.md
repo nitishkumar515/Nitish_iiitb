@@ -1,4 +1,4 @@
-# Nitish_iiitb
+# Nitishkumar_iiitb
 ## DAY 0
 ## To install verilog in ubuntu try this code in terminal
 ```
