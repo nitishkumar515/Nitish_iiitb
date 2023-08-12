@@ -386,7 +386,7 @@ ___
 generate netlists for the specified cell library using the liberty file format.
 ___
 
-![abc_op]([./images/day_1/abc_op.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/abc_op.png))
+![abc_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/abc_op.png)
 
 The output of the synthesis displays the number of input and output signals and the name of the standard cell that is used. 
 
