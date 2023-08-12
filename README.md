@@ -172,7 +172,7 @@ make test
 
 ### **Introduction to Simulator**
 A simulator is a software tool that can be used to check the functionality of a circuit design before it is implemented in hardware. It does this by simulating the behavior of the design in software, using a Hardware Description Language (HDL) such as Verilog or VHDL. The Register Tranfer Level (RTL) design is the actual Verilog code that implements the circuit i.e., the behavioural representation of the specification in a HDL language. To verify the correctness of the RTL design with the specification, a testbench is written in HDL and simulated using the open-source simulator, Icarus Verilog. The testbench generates stimulus signals that are applied to the RTL design, and the simulator monitors the output signals to ensure that they are correct. The simulator monitors changes in the input signals. When an input signal changes, the simulator re-evaluates the RTL design and updates the output signals. The simulator records the changes in the input and output signals in a file called a Value Change Dump (VCD) file. This file is used to visualize the behavior of the design over time in the form of waveforms. A tool called GTKWave is used to open the VCD file and view the which helps in debugging the design and verifying its functionality in accordance with the specification.
-![iverilog_based_simulation flow](./images/day_1/iverilog_based_simulation_flow.png)
+![iverilog_based_simulation flow](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/iverilog_simulation_flow%20chart.png)
 
 **Steps to download the lab folder**</br>
 ```
@@ -185,7 +185,7 @@ git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 cd ASIC/sky130RTLDesignAndSynthesisWorkshop/
 ls -l
 ```
-![folder_structure](./images/day_1/folder_structure.png)
+![folder_structure](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/folder_structure.png)
 
 The lib folder contains all the library files needed for the lab, including the sky130 standard cell library. The verilog_model folder in ***/home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/my_lib*** contains the verilog models of the standard cells present in the .lib file. The verilog_files folder contains all the lab experiment verilog source files and corresponding testbench files needed to simulate the designs.
 
@@ -226,7 +226,7 @@ Commands to execute to view the waveform :
 gtkwave tb_good_mux.vcd
 ```
 
-![iverilog_gtkwave_demo](./images/day_1/ievrilog_gtkwave_demo.png)
+![iverilog_gtkwave_demo](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/ievrilog_gtkwave_demo.png)
 
 
 ### **Description of the Verilog code**
@@ -289,7 +289,7 @@ endmodule
 ### **Introduction to Synthesizer**
 Synthesis is the process that converts RTL into a technology-specific gate-level netlist, optimized for a set of pre-defined constraints.Synthesizer is a tool used to convert the RTL from the netlist. Yosys is one such open source synthesizer.  A netlist is a file that represents the gates and flip-flops required to implement the design in hardware and the ineterconnections between them which is a result of the synthesis process. Yosys is provided with both the design and its corresponding .lib file, and its task is to generate the netlist. The netlist generated is a depiction of the input design provided to Yosys, contructed using the standard cells available in the .lib file. To validate the synthesis output, the netlist is verified in a manner analogous to how  the RTL design is verified. This involves using the same testbench and stimulus set to confirm that the outcomes obtained from the netlist correspond to those acquired when using the RTL design. The block diagram representation of the yosys flow and the netlist verification is shown below:
 
-![yosys_flow](./images/day_1/yosys_flow.png)
+![yosys_flow]([./images/day_1/yosys_flow.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/yosys_flow.png))
 
 ![netlist_verification](./images/day_1/netlist_verification.png)
 
@@ -304,7 +304,7 @@ It is necessary to provide information for the synthesis toolregarding the choic
 ### **Yosys Illustration**
 **Step 1:** Change the current working directory to the directory containing the Verilog files using the following command :
 ```
-cd /home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd /home/nitish/study/asic/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 
 ```
 
@@ -315,7 +315,7 @@ yosys
 
 **Step 3:** Read the liberty file 
 ```
-read_liberty -lib /home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_liberty -lib /home/nitish/study/asic/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 ```
 
 
@@ -331,7 +331,7 @@ read_verilog good_mux.v
 
 ---
 
-![read_yosys_commands](./images/day_1/read_yosys_commands.png)
+![read_yosys_commands]([./images/day_1/read_yosys_commands.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/read_yosys_commands.png))
 
 **Step 5:** Synthesize the verilog file.
 ```
@@ -342,14 +342,14 @@ ___
 **synth** - command runs the default synthesis script. The ***-top*** switch use the specified module as top module.
 ___
 
-![synth_op](./images/day_1/synth_op.png)
+![synth_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/synth_op.png)
 
 The output of the synthesis displays the number of wires used , number of standard cells used and the name of the standard cell. 
 
 
 **Step 6:** Generate the netlist
 ```
-abc -liberty /home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/nitish/stdy/asic/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 
 ___
@@ -357,7 +357,7 @@ ___
 generate netlists for the specified cell library using the liberty file format.
 ___
 
-![abc_op](./images/day_1/abc_op.png)
+![abc_op]([./images/day_1/abc_op.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/abc_op.png))
 
 The output of the synthesis displays the number of input and output signals and the name of the standard cell that is used. 
 
@@ -386,9 +386,9 @@ ___
 
 The netlist and the write_verilog command is shown below:
 
-![write_op](./images/day_1/write_op.png)
+![write_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/write_op.png)
 
-![netlist_op](./images/day_1/netlist_op.png)
+![netlist_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/netlist_op.png)
 
 
 
@@ -397,10 +397,10 @@ The netlist and the write_verilog command is shown below:
 ### **Exploring the Contents of .lib File**
 To view the contents inside the .lib file type the following command :
 ```
-cd ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/
+cd asic/sky130RTLDesignAndSynthesisWorkshop/lib/
 gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-![lib_img](./images/day_2/lib_img.png)
+![lib_img](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/lib_img.png)
 
 One of the fundamental parameter stored within .lib files comprises PVT parameters, where P signifies Process, V represents Voltage, and T denotes Temperature. 
 The variations in these parameters can cause significant changes in the performance of circuits.
