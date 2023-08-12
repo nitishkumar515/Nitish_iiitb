@@ -171,8 +171,10 @@ make test
 ## Day - 1 : Introduction to Verilog RTL Design and Synthesis
 
 ### **Introduction to Simulator**
-A simulator is a software tool that can be used to check the functionality of a circuit design before it is implemented in hardware. It does this by simulating the behavior of the design in software, using a Hardware Description Language (HDL) such as Verilog or VHDL. The Register Tranfer Level (RTL) design is the actual Verilog code that implements the circuit i.e., the behavioural representation of the specification in a HDL language. To verify the correctness of the RTL design with the specification, a testbench is written in HDL and simulated using the open-source simulator, Icarus Verilog. The testbench generates stimulus signals that are applied to the RTL design, and the simulator monitors the output signals to ensure that they are correct. The simulator monitors changes in the input signals. When an input signal changes, the simulator re-evaluates the RTL design and updates the output signals. The simulator records the changes in the input and output signals in a file called a Value Change Dump (VCD) file. This file is used to visualize the behavior of the design over time in the form of waveforms. A tool called GTKWave is used to open the VCD file and view the which helps in debugging the design and verifying its functionality in accordance with the specification.
-![iverilog_based_simulation flow](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/iverilog_simulation_flow%20chart.png)
+* A simulator is a software tool that is used to check the functionality of a circuit design before it is implemented in hardware. 
+
+
+![flow graph](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/iverilog_simulation_flow%20chart.png)
 
 **Steps to download the lab folder**</br>
 ```
