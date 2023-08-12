@@ -360,7 +360,7 @@ read_verilog good_mux.v
 
 ---
 
-![read_yosys_commands]([./images/day_1/read_yosys_commands.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/read_yosys_commands.png))
+![read_yosys_commands](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/read_yosys_commands.png))
 
 **Step 5:** Synthesize the verilog file.
 ```
