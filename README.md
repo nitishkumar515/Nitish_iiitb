@@ -171,7 +171,12 @@ make test
 ## Day - 1 : Introduction to Verilog RTL Design and Synthesis
 
 ### **Introduction to Simulator**
-* A simulator is a software tool that is used to check the functionality of a circuit design before it is implemented in hardware. 
+* A simulator is a software tool that is used to check the functionality of a circuit design before it is implemented in hardware.
+* It It does this by simulating the behavior of the design in software, using a Hardware Description Language (HDL) such as Verilog or VHDL.
+* The testbench generates stimulus signals that are applied to the RTL design.
+* Simulator looks for change in input signals, upon change in the input output is evaluated.
+* If no change in the input, no change to the output.
+*  A tool called GTKWave is used to open the VCD file and view the output waveform.
 
 
 ![flow graph](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/iverilog_simulation_flow%20chart.png)
@@ -192,7 +197,7 @@ ls -l
 
 ![folder_structure](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/folder_structure.png)
 
-The lib folder contains all the library files needed for the lab, including the sky130 standard cell library. The verilog_model folder in ***/home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/my_lib*** contains the verilog models of the standard cells present in the .lib file. The verilog_files folder contains all the lab experiment verilog source files and corresponding testbench files needed to simulate the designs.
+The lib folder contains all the library files needed for the lab, including the sky130 standard cell library. The verilog_model folder in ***/home/nitish/study/asic/sky130RTLDesignAndSynthesisWorkshop/my_lib*** contains the verilog models of the standard cells present in the .lib file. The verilog_files folder contains all the lab experiment verilog source files and corresponding testbench files needed to simulate the designs.
 
 ---
 
