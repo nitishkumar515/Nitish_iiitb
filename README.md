@@ -421,3 +421,20 @@ The netlist and the write_verilog command is shown below:
 
 
 
+
+
+[Reference Section]:#
+## References
+1. https://yosyshq.net/yosys/
+2. https://steveicarus.github.io/iverilog/
+3. https://gtkwave.sourceforge.net/
+4. https://ngspice.sourceforge.io/
+5. https://github.com/The-OpenROAD-Project/OpenSTA
+6. http://opencircuitdesign.com/magic/
+7. https://github.com/The-OpenROAD-Project/OpenLane
+8. https://www.eng.biu.ac.il/temanad/digital-vlsi-design/
+9. https://yosyshq.readthedocs.io/projects/yosys/en/latest/cmd_ref.html
+10. https://www.youtube.com/watch?v=EczW2IWdnOM
+
+
+
