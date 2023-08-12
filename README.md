@@ -171,6 +171,7 @@ make test
 ## Day - 1 : Introduction to Verilog RTL Design and Synthesis
 
 ### **Introduction to Simulator**
+
 * A simulator is a software tool that is used to check the functionality of a circuit design before it is implemented in hardware.
 * It It does this by simulating the behavior of the design in software, using a Hardware Description Language (HDL) such as Verilog or VHDL.
 * The testbench generates stimulus signals that are applied to the RTL design.
