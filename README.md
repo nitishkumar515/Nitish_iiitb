@@ -180,11 +180,14 @@ mkdir ASIC
 cd ASIC
 git clone https://github.com/kunalg123/vsdflow.git
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
-```Command to view the folder structure of the lab, and list the contents of the directory:
+```
+Command to view the folder structure of the lab, and list the contents of the directory:
+
 ```
 cd asic/sky130RTLDesignAndSynthesisWorkshop/
 ls -l
 ```
+
 ![folder_structure](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/folder_structure.png)
 
 The lib folder contains all the library files needed for the lab, including the sky130 standard cell library. The verilog_model folder in ***/home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/my_lib*** contains the verilog models of the standard cells present in the .lib file. The verilog_files folder contains all the lab experiment verilog source files and corresponding testbench files needed to simulate the designs.
