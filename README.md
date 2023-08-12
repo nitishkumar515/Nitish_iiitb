@@ -248,8 +248,8 @@ To view the contents of the verilog files good_mux.v and tb_good_mux.v use the f
 ```
 gvim -o good_mux.v tb_good_mux.v # -o is to open multiple windows at a time.
 ```
-The verilog code of the good_mux.v is given below:
 ```
+The verilog code of the good_mux.v is given below:
 // Verilog Code for 2:1 Mux/*
 All verilog code starts with module, ends with endmodule and within them the logic is written. 
 For RTL design portlist should be mentioned in the module and it should have atleast one input port and one output port.
@@ -309,9 +309,9 @@ endmodule
 * Yosys is provided with both the design and its corresponding .lib file, and its task is to generate the netlist.
 * The block diagram representation of the yosys flow and the netlist verification is shown below:
 
-![yosys_flow]([./images/day_1/yosys_flow.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/yosys_flow.png))
+![yosys_flow](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/yosys_flow.png))
 
-![netlist_verification](./images/day_1/netlist_verification.png)
+![netlist_verification](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/netlist_verification.png)
 
 ### **Liberty (.lib): Introduction**
 * The .lib file is a library of standard cells that can be used to implement any logic function.
