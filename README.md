@@ -182,7 +182,7 @@ git clone https://github.com/kunalg123/vsdflow.git
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ```Command to view the folder structure of the lab, and list the contents of the directory:
 ```
-cd ASIC/sky130RTLDesignAndSynthesisWorkshop/
+cd asic/sky130RTLDesignAndSynthesisWorkshop/
 ls -l
 ```
 ![folder_structure](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/folder_structure.png)
@@ -207,7 +207,7 @@ tt - Typical Timing</br>
 ### **Demostration of the Icarus Verilog and GTKWave**
 Change the current working directory to the directory containing the Verilog files using the following command :
 ```
-cd /home/kanish/ASIC/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd /home/nitish/asic/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 ```
 Simulate the RTL design and testbench using the following command:
 ```
