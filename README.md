@@ -301,17 +301,32 @@ endmodule
 ```
 
 ### **Introduction to Synthesizer**
-Synthesis is the process that converts RTL into a technology-specific gate-level netlist, optimized for a set of pre-defined constraints.Synthesizer is a tool used to convert the RTL from the netlist. Yosys is one such open source synthesizer.  A netlist is a file that represents the gates and flip-flops required to implement the design in hardware and the ineterconnections between them which is a result of the synthesis process. Yosys is provided with both the design and its corresponding .lib file, and its task is to generate the netlist. The netlist generated is a depiction of the input design provided to Yosys, contructed using the standard cells available in the .lib file. To validate the synthesis output, the netlist is verified in a manner analogous to how  the RTL design is verified. This involves using the same testbench and stimulus set to confirm that the outcomes obtained from the netlist correspond to those acquired when using the RTL design. The block diagram representation of the yosys flow and the netlist verification is shown below:
+
+* Synthesis is the process that converts RTL into a technology-specific gate-level netlist.
+* Synthesizer is a tool used to convert the RTL to netlist.
+* Yosys is one such open source synthesizer.
+* A netlist is a file that represents the gates and flip-flops required to implement the design in hardware and the ineterconnections between them which is a result of the synthesis process.
+* Yosys is provided with both the design and its corresponding .lib file, and its task is to generate the netlist.
+* The block diagram representation of the yosys flow and the netlist verification is shown below:
 
 ![yosys_flow]([./images/day_1/yosys_flow.png](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/yosys_flow.png))
 
 ![netlist_verification](./images/day_1/netlist_verification.png)
 
 ### **Liberty (.lib): Introduction**
-The .lib file is a library of standard cells that can be used to implement any logic function. It includes different versions of the same standard cell, such as low speed, high speed etc., Why is there a necessity for various gate versions? The maximum speed of a digital circuit is determined by the combinational delay within its logic path. To achieve high circuit speed, particularly for high-frequency clock operation, a small Tcomb (combinational delay) is crucial. A higher frequency inherently results in high performance. However, if only high performance is neede, faster cells would appear to suffice, raising the question of why medium and slower cell options are necessary. The requirement for slower cells is to address hold time issues. In digital logic circuits, the load takes the form of capacitance. Faster charging and discharging induce minimal delays. Propagation delay, a key concept, refers to the time it takes for a change in the input of a digital logic gate or circuit to result in a corresponding change in its output. It is the duration between when the input transition begins and when the output transition completes. For larger capacitance (C), slow driving occurs, while smaller capacitance results in swift driving. For rapid charging and discharging of capacitance, a greater current sourcing capability is required. However, this leads to broader transistors, resulting in the increase in  area usage and higher power consumption. Narrower transistors offer reduced area usage and lower power consumption. The swiftness of cells brings with it the trade-off of area utilization and power consumption.
-
-
-It is necessary to provide information for the synthesis toolregarding the choice of cells. Overuse of faster cells increases area and power demands, while also it leads to hold time violations. Conversely, excessive use of slower cells results in poor performance requirements. The optimal cell selection for the synthesizer is guided by constraints that dictate the appropriate cell set to use.
+* The .lib file is a library of standard cells that can be used to implement any logic function.
+* It includes different versions of the same standard cell, such as low speed, high speed etc.
+* Why is there a necessity for various gate versions? The maximum speed of a digital circuit is determined by the combinational delay within its logic path.
+* To achieve high circuit speed, particularly for high-frequency clock operation, a small Tcomb (combinational delay) is crucial. A higher frequency inherently results in high performance.
+* However, if only high performance is neede, faster cells would appear to suffice, raising the question of why medium and slower cell options are necessary. The requirement for slower cells is to address hold time issues.
+* In digital logic circuits, the load takes the form of capacitance.
+* Faster charging and discharging induce minimal delays. Propagation delay, a key concept, refers to the time it takes for a change in the input of a digital logic gate or circuit to result in a corresponding change in its output. It is the duration between when the input transition begins and when the output transition completes.
+* For larger capacitance (C), slow driving occurs, while smaller capacitance results in swift driving. For rapid charging and discharging of capacitance, a greater current sourcing capability is required.
+* However, this leads to broader transistors, resulting in the increase in  area usage and higher power consumption.
+* Narrower transistors offer reduced area usage and lower power consumption. The swiftness of cells brings with it the trade-off of area utilization and power consumption.
+* It is necessary to provide information for the synthesis toolregarding the choice of cells.
+* Overuse of faster cells increases area and power demands, while also it leads to hold time violations. Conversely, excessive use of slower cells results in poor performance requirements.
+* The optimal cell selection for the synthesizer is guided by constraints that dictate the appropriate cell set to use.
 
 ### **Setup Time and Hold Time**
 
@@ -385,7 +400,7 @@ ___
 **show** - Creates a graphviz DOT file for the selected part of the design and compile it to a graphics file. It generates a schematic.
 ___
 
-![show_op](./images/day_1/show_op.png)
+![show_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/show_op.png)
 
 In the schematic there is sky130 based 2:1 multiplexer standard cell with three inputs and one output.
 
