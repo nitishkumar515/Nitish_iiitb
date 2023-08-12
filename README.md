@@ -231,9 +231,12 @@ Execute the a.out using the command **```./a.out ```**, resulting in the generat
 This vcd file is given as the input to the GTKWave to view the wave form.
 In GTKWave drag and drop the required input and output signals to view the waveform. Since the simulation is done for long amount of time use the zoom to fit option to view the entire waveform.
 
-Commands to execute to view the waveform :
+Commands to execute file.
 ```
 ./a.out
+```
+Commands to view output waveform
+```
 gtkwave tb_good_mux.vcd
 ```
 
