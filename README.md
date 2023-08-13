@@ -540,6 +540,157 @@ The propagation delay of the OR gate is 1ns and AND gate is 2ns. Initially a,b,c
 In order to avoid the glitches a D flip-flop can be connected at the output so that the output will change only at the rising or falling edge of the clock. As mentioned earlier flip-flops generally needs two inputs: data and clock. But the problem is the initial state of the flip-flop is unknown. So in order to set the initial value of the flip-flop, two more inputs are provided : preset/set and reset. These additional inputs can be synchronous with clock or asynchronous with clock.
 
 **Steps to simulate and generate the netlist for the below designs**
+Simulation steps :
+```
+iverilog <rtl_name.v> <tb_name.v>
+./a.out
+gtkwave <dump_file_name.vcd>
+```
+
+Generating netlist steps :
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog <module_name.v> 
+synth -top <top_module_name>
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+write_verilog -noattr <netlist_name.v>
+```
+___
+***Note***:</br>
+**dfflibmap** - technology mapping of flip-flops</br>
+dfflibmap  -liberty - Maps internal flip-flop cells to the flip-flop cells in the technology library specified in the given liberty file.
+
+Generally in the flow there will be a separate .lib file for the flip-flops which needs to be used with the dfflibmap command.
+___
+
+**1. D flip-flop with Synchronous reset**</br>
+A D flip-flop with synchronous reset  combines the functionality of a D flip-flop with the ability to reset its state synchronously. This means that the flip-flop's stored value can be reset to 0 or low state based on a clock signal and a reset input, ensuring that the reset operation occurs when the clock signal transits.
+The verilog code, simulation and synthesis results are shown below:
+```
+module dff_syncres ( input clk , input async_reset , input sync_reset , input d , output reg q );
+always @ (posedge clk )
+begin
+	if (sync_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+```
+
+![sync_res](./images/day_2/sync_res.png)
+
+![sync_res_netlist](./images/day_2/sync_res_netlist.png)
+
+**2. D flip-flop with Asynchronous reset**</br>
+A D flip-flop with asynchronous reset combines the functionality of a D flip-flop with the ability to reset its state asynchronously. This means that the flip-flop's stored value can be reset to 0 or low state regardless of the clock signal's state.
+The verilog code, simulation and synthesis results are shown below:
+```
+module dff_asyncres ( input clk ,  input async_reset , input d , output reg q );
+always @ (posedge clk , posedge async_reset)
+begin
+	if(async_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+```
+![async_simu](./images/day_2/async_simu.png)
+
+![async_res](./images/day_2/async_res.png)
+
+**3. D flip-flop with Asynchronous set**</br>
+A D flip-flop with asynchronous set combines the functionality of a D flip-flop with the ability to set its state asynchronously. This means that the flip-flop's stored value can be set to 1 or high state regardless of the clock signal's state.
+The verilog code, simulation and synthesis results are shown below:
+
+```
+module dff_async_set ( input clk ,  input async_set , input d , output reg q );
+always @ (posedge clk , posedge async_set)
+begin
+	if(async_set)
+		q <= 1'b1;
+	else	
+		q <= d;
+end
+endmodule
+```
+![async_set_simu](./images/day_2/async_set_simu.png)
+
+![async_set_net](./images/day_2/async_set_net.png)
+
+
+**4. D flip-flop with Asynchronous and Synchronous reset**</br>
+A D flip-flop with both asynchronous and synchronous reset that combines the features of a D flip-flop with the ability to reset its state using either an asynchronous reset input or a synchronous reset input. This provides flexibility in resetting the flip-flop's state under different conditions.
+
+The verilog code, simulation and synthesis results are shown below:
+```
+module dff_asyncres_syncres ( input clk , input async_reset , input sync_reset , input d , output reg q );
+always @ (posedge clk , posedge async_reset)
+begin
+	if(async_reset)
+		q <= 1'b0;
+	else if (sync_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+```
+
+![async_sync_reset](./images/day_2/async_sync_reset.png)
+
+![async_sync_reset_netlist](./images/day_2/async_sync_reset_net.png)
+
+
+
+### **Optimizations**
+During synthesis yosys will perform optimisations based on the logic that is being designed. An illustration of the yosys optimization is given below:
+
+**1. Optimisation Example 1**
+
+Consider the verilog design given below:
+```
+module mul2 (input [2:0] a, output [3:0] y);
+	assign y = a * 2;
+endmodule
+```
+This code performs multiplication of the input number by 2. Since the input is 3-bit binary number all the input and output combinations are as follows:
+| a2 a1 a0  |y3 y2 y1 y0   |
+|:---:|:---:|
+| 0 0 0 | 0 0 0 0  |
+| 0 0 1 | 0 0 1 0  |
+| 0 1 0 | 0 1 0 0  |
+| 0 1 1 | 0 1 1 0  |
+| 1 0 0 | 1 0 0 0  |
+| 1 0 1 | 1 0 1 0  |
+| 1 1 0 | 1 1 0 0  |
+| 1 1 1 | 1 1 1 0  |
+
+y0 is always 0 and the code doesn't need any hardware and it only needs the proper wiring of the input bits to the output and grounding the bit y0. The netlist of the design is shown below:
+
+![opt_1](./images/day_2/opt_1.png)
+
+![opt_net](./images/day_2/opt_net.png)
+
+**2. Optimisation Example 2**
+
+Consider the verilog design given below:
+```
+module mult8 (input [2:0] a , output [5:0] y);
+	assign y = a * 9;
+endmodule
+```
+In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which can be re-written as (a\*8) + a . The term (a\*8) is nothing but a left shifting the number a by three bits. Consider that a = a2 a1 a0. (a\*8) results in a2 a1 a0 0 0 0. (a\*9)=(a\*8)+a = a2 a1 a0 a2 a1 a0 = aa(in 6 bit format). Hence in this case no hardware realization is required. The synthesized netlist of this design is shown below:
+
+![opt_2](./images/day_2/opt_2.png)
+
+![opt_2_net](./images/day_2/opt2_net.png)
+
+[Reference Section]:#
 
 
  
