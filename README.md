@@ -531,9 +531,9 @@ A flip-flop is a fundamental sequential synchronous electronic circuit that is c
 **Need of flip-flops**</br>
 In any electronic circuit there will always be an propagation delay. These delays may cause glitches in the output which may cause the output state to change when it is not supposed to. Glitches are unwanted transitions in the output. As an illustration consider the circuit shown below:
 
-![glitch](./images/day_2/glitch.png)
+![glitch](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/glitch.png)
 
-![glitch_plot](./images/day_2/glitch_plot.png)
+![glitch_plot](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/glitch_plot.png)
 
 The propagation delay of the OR gate is 1ns and AND gate is 2ns. Initially a,b,c are 0,0,1 and the internal node i0 is 0 and the output Y is high. At t=0ns there is change in the inputs a,b,c becomes 1,1,0. Because of the propagation delays of the AND gate and OR gate at t=1ns the output node transits from high to low and since the input to the OR gate both i0 and c are 0. At t=2ns the internal node i0 transists from 0 to 1 and  the inputs to the OR gate becomes 1 and 0. Since the propagation delay of the OR gate is 1ns the output Y becomes high at 3ns and remains stable. Between 1ns and 3ns the output made an unwanted change in the transition resulting in a glitch.  
 
@@ -581,9 +581,9 @@ end
 endmodule
 ```
 
-![sync_res](./images/day_2/sync_res.png)
+![sync_res](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/sync_res.png)
 
-![sync_res_netlist](./images/day_2/sync_res_netlist.png)
+![sync_res_netlist](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/sync_res_netlist.png)
 
 **2. D flip-flop with Asynchronous reset**</br>
 A D flip-flop with asynchronous reset combines the functionality of a D flip-flop with the ability to reset its state asynchronously. This means that the flip-flop's stored value can be reset to 0 or low state regardless of the clock signal's state.
@@ -599,9 +599,9 @@ begin
 end
 endmodule
 ```
-![async_simu](./images/day_2/async_simu.png)
+![async_simu](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/async_simu.png)
 
-![async_res](./images/day_2/async_res.png)
+![async_res](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/async_res.png)
 
 **3. D flip-flop with Asynchronous set**</br>
 A D flip-flop with asynchronous set combines the functionality of a D flip-flop with the ability to set its state asynchronously. This means that the flip-flop's stored value can be set to 1 or high state regardless of the clock signal's state.
@@ -618,9 +618,9 @@ begin
 end
 endmodule
 ```
-![async_set_simu](./images/day_2/async_set_simu.png)
+![async_set_simu](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/async_set_simu.png)
 
-![async_set_net](./images/day_2/async_set_net.png)
+![async_set_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/async_set_net.png)
 
 
 **4. D flip-flop with Asynchronous and Synchronous reset**</br>
@@ -641,9 +641,9 @@ end
 endmodule
 ```
 
-![async_sync_reset](./images/day_2/async_sync_reset.png)
+![async sync reset](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/async_sync_reset.png)
 
-![async_sync_reset_netlist](./images/day_2/async_sync_reset_net.png)
+![async_sync_reset_netlist](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/async_sync_reset_net.png)
 
 
 
@@ -672,9 +672,9 @@ This code performs multiplication of the input number by 2. Since the input is 3
 
 y0 is always 0 and the code doesn't need any hardware and it only needs the proper wiring of the input bits to the output and grounding the bit y0. The netlist of the design is shown below:
 
-![opt_1](./images/day_2/opt_1.png)
+![opt_1](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_1.png)
 
-![opt_net](./images/day_2/opt_net.png)
+![opt_net](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_net.png)
 
 **2. Optimisation Example 2**
 
@@ -686,9 +686,9 @@ endmodule
 ```
 In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which can be re-written as (a\*8) + a . The term (a\*8) is nothing but a left shifting the number a by three bits. Consider that a = a2 a1 a0. (a\*8) results in a2 a1 a0 0 0 0. (a\*9)=(a\*8)+a = a2 a1 a0 a2 a1 a0 = aa(in 6 bit format). Hence in this case no hardware realization is required. The synthesized netlist of this design is shown below:
 
-![opt_2](./images/day_2/opt_2.png)
+![opt_2](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_2.png)
 
-![opt_2_net](./images/day_2/opt2_net.png)
+![opt_2_net](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png
 
 [Reference Section]:#
 
