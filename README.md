@@ -184,21 +184,21 @@ make test
 
 **Steps to download the lab folder**</br>
 ```
-mkdir ASIC
-cd ASIC
+mkdir vlsi
+cd vlsi
 git clone https://github.com/kunalg123/vsdflow.git
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ```
 Command to view the folder structure of the lab, and list the contents of the directory:
 
 ```
-cd asic/sky130RTLDesignAndSynthesisWorkshop/
+cd vlsi/sky130RTLDesignAndSynthesisWorkshop/
 ls -l
 ```
 
 ![folder_structure](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/folder_structure.png)
 
-The lib folder contains all the library files needed for the lab, including the sky130 standard cell library. The verilog_model folder in ***/home/nitish/study/asic/sky130RTLDesignAndSynthesisWorkshop/my_lib*** contains the verilog models of the standard cells present in the .lib file. The verilog_files folder contains all the lab experiment verilog source files and corresponding testbench files needed to simulate the designs.
+The lib folder contains all the library files needed for the lab, including the sky130 standard cell library. The verilog_model folder in ***/home/nitish/vsd/vlsi/sky130RTLDesignAndSynthesisWorkshop/my_lib*** contains the verilog models of the standard cells present in the .lib file. The verilog_files folder contains all the lab experiment verilog source files and corresponding testbench files needed to simulate the designs.
 
 ---
 
@@ -218,7 +218,7 @@ tt - Typical Timing</br>
 ### **Demostration of the Icarus Verilog and GTKWave**
 Change the current working directory to the directory containing the Verilog files using the following command :
 ```
-cd /home/nitish/asic/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd /home/nitish/vsd/vlsi/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 ```
 Simulate the RTL design and testbench using the following command:
 ```
@@ -333,7 +333,7 @@ endmodule
 ### **Yosys Illustration**
 **Step 1:** Change the current working directory to the directory containing the Verilog files using the following command :
 ```
-cd /home/nitish/study/asic/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd /home/nitish/vsd/vlsi/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 
 ```
 
@@ -344,7 +344,7 @@ yosys
 
 **Step 3:** Read the liberty file 
 ```
-read_liberty -lib /home/nitish/study/asic/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_liberty -lib /home/nitish/vsd/vlsi/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 ```
 
 
@@ -378,7 +378,7 @@ The output of the synthesis displays the number of wires used , number of standa
 
 **Step 6:** Generate the netlist
 ```
-abc -liberty /home/nitish/stdy/asic/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/nitish/vsd/vlsi/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 
 ___
@@ -422,7 +422,7 @@ The netlist and the write_verilog command is shown below:
 ## Exploring the Contents of .lib File
 ### To view the contents inside the .lib file type the following command :
 ```
-cd ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/
+cd vlsi/sky130RTLDesignAndSynthesisWorkshop/lib/
 gvim sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 ![lib_img](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/lib_img.png)
