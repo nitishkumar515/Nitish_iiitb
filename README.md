@@ -672,9 +672,9 @@ This code performs multiplication of the input number by 2. Since the input is 3
 
 y0 is always 0 and the code doesn't need any hardware and it only needs the proper wiring of the input bits to the output and grounding the bit y0. The netlist of the design is shown below:
 
-![opt_1](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_1.png)
+![opt_1](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_1.png)
 
-![opt_net](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_net.png)
+![opt_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_net.png)
 
 **2. Optimisation Example 2**
 
@@ -686,9 +686,9 @@ endmodule
 ```
 In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which can be re-written as (a\*8) + a . The term (a\*8) is nothing but a left shifting the number a by three bits. Consider that a = a2 a1 a0. (a\*8) results in a2 a1 a0 0 0 0. (a\*9)=(a\*8)+a = a2 a1 a0 a2 a1 a0 = aa(in 6 bit format). Hence in this case no hardware realization is required. The synthesized netlist of this design is shown below:
 
-![opt_2](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_2.png)
+![opt_2](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_2.png)
 
-![opt_2_net](.https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png
+![opt_2_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png
 
 [Reference Section]:#
 
