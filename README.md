@@ -700,4 +700,3 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 9.  https://yosyshq.readthedocs.io/projects/yosys/en/latest/cmd_ref.html
 10. https://www.youtube.com/watch?v=EczW2IWdnOM
 11. https://learn.digilentinc.com/Documents/277
-12. https://Kanish_IIITB_Physical_Design_Using_ASIC_Class
