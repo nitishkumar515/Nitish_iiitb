@@ -418,6 +418,12 @@ The netlist and the write_verilog command is shown below:
 ![write_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/write_op.png)
 
 ![netlist_op](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_1/netlist_op.png)
+#Day-2:Timing libs, Hierarchical vs Flat Synthesis and Efficient flop coding styles
+## Exploring the Contents of .lib File
+### To view the contents inside the .lib file type the following command :
+``` cd ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/
+gvim sky130_fd_sc_hd__tt_025C_1v80.lib
+```
 
 
 
