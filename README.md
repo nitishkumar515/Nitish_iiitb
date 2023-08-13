@@ -691,25 +691,20 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 ![opt_2_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png)
 [Reference Section]:#
 
-
+## References
+1.  https://yosyshq.net/yosys/
+2.  https://steveicarus.github.io/iverilog/
+3.  https://gtkwave.sourceforge.net/
+4.  https://ngspice.sourceforge.io/
+5.  https://github.com/The-OpenROAD-Project/OpenSTA
+6.  http://opencircuitdesign.com/magic/
+7.  https://github.com/The-OpenROAD-Project/OpenLane
+8.  https://www.eng.biu.ac.il/temanad/digital-vlsi-design/
+9.  https://yosyshq.readthedocs.io/projects/yosys/en/latest/cmd_ref.html
+10. https://www.youtube.com/watch?v=EczW2IWdnOM
+11. https://learn.digilentinc.com/Documents/277
  
 
-
-
-
-
-[Reference Section]:#
-## References
-1. https://yosyshq.net/yosys/
-2. https://steveicarus.github.io/iverilog/
-3. https://gtkwave.sourceforge.net/
-4. https://ngspice.sourceforge.io/
-5. https://github.com/The-OpenROAD-Project/OpenSTA
-6. http://opencircuitdesign.com/magic/
-7. https://github.com/The-OpenROAD-Project/OpenLane
-8. https://www.eng.biu.ac.il/temanad/digital-vlsi-design/
-9. https://yosyshq.readthedocs.io/projects/yosys/en/latest/cmd_ref.html
-10. https://www.youtube.com/watch?v=EczW2IWdnOM
 
 
 
