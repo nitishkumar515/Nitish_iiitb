@@ -689,7 +689,6 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 ![opt_2](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_2.png)
 
 ![opt_2_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png)
-[Reference Section]:#
 
 ## References
 1.  https://yosyshq.net/yosys/
@@ -703,8 +702,3 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 9.  https://yosyshq.readthedocs.io/projects/yosys/en/latest/cmd_ref.html
 10. https://www.youtube.com/watch?v=EczW2IWdnOM
 11. https://learn.digilentinc.com/Documents/277
- 
-
-
-
-
