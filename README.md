@@ -741,24 +741,20 @@ The maximum frequency with which the portion of circuit between A and B can be o
 
 Generating netlist steps :
 ```
-# Remove "#" if needed
+
 yosys
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
-read_verilog <module_name.v> 
-synth -top <top_module_name>
-# flatten # Use if multiple modules are present
+read_verilog <opt_check3.v> 
+synth -top <opt_check3>
 opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 show
-write_verilog -noattr <netlist_name.v>
 ```
 
 The synthesis result and the netlist are shown below :
 ![fig-8]()
 ![fig-9]()
-The synthesis result and the netlist are shown below :
-![fig-10]()
-
+opt_clean -purge - remove unused cells and wires.
 
 
 
