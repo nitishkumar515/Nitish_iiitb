@@ -687,6 +687,35 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 ![opt_2](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_2.png)
 
 ![opt_2_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png)
+##Day-3: Logic Optimisations
+* Digital electronics circuits optimisations can be done in two ways.
+  1. Combinational optimisations.
+  2. Sequential optimisations.
+* These optimisations are done inorder to maximum uses of designs and that take less area, less power, and better performance.
+
+## Combinational Optimisations
+The combinational Circuits optimising methods are as follows:
+
+Constant Propagation (Direct Optimisation)
+Boolean Logic Optimisation (using K-Map or Quine McCluskey method)
+1. Constant Propagation Illustration
+Consider the combinational circuit shown below :
+![fig-1]()
+The outputof logic circuit is Y = ((AB)+C)'. If A is always tied to ground i.e., A = 0, then the simplified expression will become to C'. In this case instead of having a AND gate and a NOR gate the circuit can be simplified by using a single NOT gate with C as its input. Even though both of then represent the same logic since the number of transistors used in the optimised design is less compared to that of the given circuit which shown in the above figure. The transistor level implementation of the given circuit and the optimised circuit is shown below:
+![fig-2]()
+* The optimized circuit will take 2 transistors only.
+* The reduction in the required number of transistors for designing, decreasing from 6 to 2 in the optimised design. This will result in reduced power consumption and occuppies less area.
+## 2. Boolean Logic Optimisation Illustration
+Consider the verilog statement below :
+```
+assign y = a?(b?c:(c?a:0)):(!c);
+```
+The ternary operator (?:) will realize a mux upon synthesis. The combinational circuit that corresponds to the above statement is shown below:
+![fig-3]()
+The optimised circuit is shown below:
+![fig-4]()
+
+
 
 ## References
 1.  https://yosyshq.net/yosys/
