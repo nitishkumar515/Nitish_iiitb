@@ -736,6 +736,28 @@ Suppose some part of the logic from combinational circuit between flop B and C i
 ![fig-8]()
 
 The maximum frequency with which the portion of circuit between A and B can be operated is 250MHz and the maximum frequency with which the portion of circuit between B and C can be operated is 333MHz. The effective frequency is minimum of the both which is 250MHz. Thus the effective maximum frequency has increased after performing the retiming.
+## llustration of Combinational Optimizsation:
+### Steps to generate the netlist for the below designs
+
+Generating netlist steps :
+```
+# Remove "#" if needed
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog <module_name.v> 
+synth -top <top_module_name>
+# flatten # Use if multiple modules are present
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+write_verilog -noattr <netlist_name.v>
+```
+
+The synthesis result and the netlist are shown below :
+![fig-8]()
+![fig-9]()
+The synthesis result and the netlist are shown below :
+![fig-10]()
 
 
 
