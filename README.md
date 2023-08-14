@@ -693,7 +693,7 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
   2. Sequential optimisations.
 * These optimisations are done inorder to maximum uses of designs and that take less area, less power, and better performance.
 
-## Combinational Optimisations
+## 1.Combinational Optimisations
 The combinational Circuits optimising methods are as follows:
 
 Constant Propagation (Direct Optimisation)
@@ -705,7 +705,7 @@ The outputof logic circuit is Y = ((AB)+C)'. If A is always tied to ground i.e.,
 ![fig-2]()
 * The optimized circuit will take 2 transistors only.
 * The reduction in the required number of transistors for designing, decreasing from 6 to 2 in the optimised design. This will result in reduced power consumption and occuppies less area.
-## 2. Boolean Logic Optimisation Illustration
+## 2.Boolean Logic Optimisation Illustration
 Consider the verilog statement below :
 ```
 assign y = a?(b?c:(c?a:0)):(!c);
