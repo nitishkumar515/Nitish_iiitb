@@ -687,7 +687,7 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 ![opt_2](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt_2.png)
 
 ![opt_2_net](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/day_2/opt2_net.png)
-##Day-3: Logic Optimisations
+## Day-3: Logic Optimisations
 * Digital electronics circuits optimisations can be done in two ways.
   1. Combinational optimisations.
   2. Sequential optimisations.
