@@ -719,6 +719,7 @@ State optimization refers to the process of minimizing the number of unused stat
 ## 3.equential Logic Cloning
 * This technique is generally used when a physical aware synthesis is done.
 * This technique is commonly employed in various scenarios such as redundancy for fault tolerance, speed improvement, and power optimization.
+* Sequential logic cloning is used to replicate or clone a portion of a sequential logic circuit while maintaining its functionality and behavior.
 
   
 ![fig-5](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-5.jpg)
