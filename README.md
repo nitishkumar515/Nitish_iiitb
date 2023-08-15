@@ -740,6 +740,7 @@ This technique is generally used when a physical aware synthesis is done.
 Consider the circuit shown below :
 
 ![fig-6](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-6.jpg)
+
 Consider flop A has large positive slack. The flops B and C are far from flop A. Hence there will be a large routing delay from A to B and A to C. To avoid this flop A and the combinational logic 2 is replicated or cloned in the paths of B and C as shown in the figure below. Since flop A has large positive slack the delay introduced because of the cloning will be compensated and the further delay in the circuit is mainly depended on flop B and flop C.
 ![fig-7](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-7.jpg)
 ## c. Retiming
