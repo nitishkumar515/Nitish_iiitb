@@ -812,9 +812,62 @@ module ternary_operator_mux (input i0 , input i1 , input sel , output y);
 	assign y = sel?i1:i0;
 endmodule
 ```
-![fig-1]()
+![fig-111](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/fig111.png)
 
-![fig2]()
+![fig222](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/fig222.png)
+
+### Example 2
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+	always @ (sel)
+	begin
+		if(sel)
+			y <= i1;
+		else 
+			y <= i0;
+	end
+endmodule
+```
+![fig41]()
+
+### Net Simulation
+![fig42]()
+### MISMATCH
+Here second pic shows the netlist simulation which corrects the bad_mux design which was only changing waveform when sel was triggered while for a mux to work properly it should be sensitivity to all the input signals.
+### Example 3
+```
+module good_mux (input i0 , input i1 , input sel , output reg y);
+	always @ (*)
+	begin
+		if(sel)
+			y <= i1;
+		else 
+			y <= i0;
+	end
+endmodule
+```
+
+### Lab- Synthesis simulation mismatch blocking statement
+
+### Example 4
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+	begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+```
+![fig43]()
+
+### Netlist
+![fig44]()
+
+Here second pic show the netlist simulation which shows the proper working of the dut while the first pic shows the improper working of dut as we have used blocking statement here which causes synthesis simulation mismatch which is sorted out by GLS while providing netlist simulation
+
+
 
 ## Day - 5 : If, case, for and for generate
 ### Lab- Incomplete IF
