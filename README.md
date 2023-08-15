@@ -828,10 +828,10 @@ module bad_mux (input i0 , input i1 , input sel , output reg y);
 	end
 endmodule
 ```
-![fig41]()
+![fig41](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/fig41.png)
 
 ### Net Simulation
-![fig42]()
+![fig42](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/fig42.png)
 ### MISMATCH
 Here second pic shows the netlist simulation which corrects the bad_mux design which was only changing waveform when sel was triggered while for a mux to work properly it should be sensitivity to all the input signals.
 ### Example 3
@@ -860,10 +860,10 @@ always @ (*)
 end
 endmodule
 ```
-![fig43]()
+![fig43](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/fig43.png)
 
 ### Netlist
-![fig44]()
+![fig44](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/fig44.png)
 
 Here second pic show the netlist simulation which shows the proper working of the dut while the first pic shows the improper working of dut as we have used blocking statement here which causes synthesis simulation mismatch which is sorted out by GLS while providing netlist simulation
 
@@ -882,9 +882,9 @@ begin
 end
 endmodule
 ```
-![fig-1]()
+![fig-51]()
 
-![fig2]()
+![fig52]()
 ### Lab- incomplete overlapping Case
 Thie is an example of incomplete case where other two combinations 10 and 11 were not included. This is infer a latch for the multiplexer and connect i2 and i3 with the output.
 
@@ -899,9 +899,9 @@ module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg
 	end
 endmodule
 ```
-![fig-3]()
+![fig-53]()
 
-![fig4]()
+![fig54]()
 
 ### Example-2- Complete case
 ```
@@ -916,9 +916,9 @@ begin
 end
 endmodule
 ```
-![fig5]()
+![fig55]()
 
-![fig6]()
+![fig56]()
 ### For Loop and For Generate
 ### For Loop
 * For look is used in always block.
@@ -947,9 +947,9 @@ always @ (*)
 	end
 endmodule
 ```
-![fig7]()
+![fig57]()
 
-![fig8]()
+![fig58]()
 
 
 
