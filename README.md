@@ -695,13 +695,13 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 
 ## 1.Combinational Optimisations
 The combinational Circuits optimising methods are as follows:
-
 Constant Propagation (Direct Optimisation)
 Boolean Logic Optimisation (using K-Map or Quine McCluskey method)
 1. Constant Propagation Illustration
 Consider the combinational circuit shown below :
 ![fig-1](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-1.png)
 The outputof logic circuit is Y = ((AB)+C)'. If A is always tied to ground i.e., A = 0, then the simplified expression will become to C'. In this case instead of having a AND gate and a NOR gate the circuit can be simplified by using a single NOT gate with C as its input. Even though both of then represent the same logic since the number of transistors used in the optimised design is less compared to that of the given circuit which shown in the above figure. The transistor level implementation of the given circuit and the optimised circuit is shown below:
+
 ![fig-2](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-2.png)
 * The optimized circuit will take 2 transistors only.
 * The reduction in the required number of transistors for designing, decreasing from 6 to 2 in the optimised design. This will result in reduced power consumption and occuppies less area.
@@ -711,31 +711,46 @@ Consider the verilog statement below :
 assign y = a?(b?c:(c?a:0)):(!c);
 ```
 The ternary operator (?:) will realize a mux upon synthesis. The combinational circuit that corresponds to the above statement is shown below:
+
 ![fig-3](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-3.jpg)
+
 The optimised circuit is shown below:
+
 ![fig-4](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-4.jpg)
+## 2. Sequential Optimisations
+The sequential logic optimisations techniques are broadly classified into two categories :
+1. Basic Techniques
+* Sequential Constant Propagation
+2. Advanced Techniques
+  a. State Optimisation
+  b. Retiming
+  c. Sequential Logic Cloning (Floor aware Synthesis)
+### 1.Sequential Constant Propagation
+Consider the sequential circuit shown below :
+![fig-5](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-5.jpg)
+* The D flip-flop shown in the figure is positive edge triggered with asynchronous reset and the data input D is always tied to the ground (i.e, low state or logic 0).
+* When reset is applied the output of the flop becomes low and if reset it deasserted the output of the flop still remains low.
+* Hence one of the input to the NAND gate is always low resulting in the output Y to be always in high stae (logic 1 or VDD).
+*  Hence the optimised version of this circuit is connecting the output port Y directly to VDD i.e., the supply voltage.
 ## 2. State Optimisation
 State optimization refers to the process of minimizing the number of unused states in a digital circuit's state machine.
-## 3.equential Logic Cloning
-* This technique is generally used when a physical aware synthesis is done.
-* This technique is commonly employed in various scenarios such as redundancy for fault tolerance, speed improvement, and power optimization.
-* Sequential logic cloning is used to replicate or clone a portion of a sequential logic circuit while maintaining its functionality and behavior.
-
-  
-![fig-5](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-5.jpg)
-
-Consider flop A has large positive slack. The flops B and C are far from flop A. Hence there will be a large routing delay from A to B and A to C. To avoid this flop A and the combinational logic 2 is replicated or cloned in the paths of B and C as shown in the figure below. Since flop A has large positive slack the delay introduced because of the cloning will be compensated and the further delay in the circuit is mainly depended on flop B and flop C.
+## 3.Sequential Logic Cloning
+Sequential logic cloning is used to replicate or clone a portion of a sequential logic circuit while maintaining its functionality and behavior.
+This technique is generally used when a physical aware synthesis is done.
+Consider the circuit shown below :
 ![fig-6]()
+Consider flop A has large positive slack. The flops B and C are far from flop A. Hence there will be a large routing delay from A to B and A to C. To avoid this flop A and the combinational logic 2 is replicated or cloned in the paths of B and C as shown in the figure below. Since flop A has large positive slack the delay introduced because of the cloning will be compensated and the further delay in the circuit is mainly depended on flop B and flop C.
+![fig-7]()
 ## 4. Retiming
 * Retiming aims to optimize these factors by moving registers to appropriate locations within the circuit.
 * Retiming used to improve the performance interms of better timing characteristics by repositioning the registers (flip-flops) within the circuit without altering its functionality.
 * In a digital circuit, registers (flip-flops) are used to store intermediate results and control the flow of data. * The placement of these registers can significantly impact the circuit's overall performance, including its critical path delay, clock frequency, and power consumption.
 * Consider the circuit shown below :
-![fig-7]()
+![fig-8]()
 Consider the C-Q delay and set up time is 0ns. The combinational circuits have finite amount of the propagation delay. The maximum clock frequency with which the circuit operates depends on the propagation delay of the combinational logic. From flop A to B the propagation delay is 5ns and the maximum frequency with which this portion of circuit can be operated is 200MHz. Fom flop B to C the propagation delay is 2ns and the maximum frequency with which this portion of circuit can be operated is 500MHz. The effective frequency is minimum of the both which is 200MHz.
 
 Suppose some part of the logic from combinational circuit between flop B and C is placed with the combinational circuit between the flop A and flop B in such a way that the propagation delay of the circuit between flop A and flop is reduced while propagation delay between flop B and flop C is increased by a small amount as show below :
-![fig-8]()
+![fig-9]()
 
 The maximum frequency with which the portion of circuit between A and B can be operated is 250MHz and the maximum frequency with which the portion of circuit between B and C can be operated is 333MHz. The effective frequency is minimum of the both which is 250MHz. Thus the effective maximum frequency has increased after performing the retiming.
 ## llustration of Combinational Optimizsation:
@@ -743,7 +758,6 @@ The maximum frequency with which the portion of circuit between A and B can be o
 
 Generating netlist steps :
 ```
-
 yosys
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
 read_verilog <opt_check3.v> 
