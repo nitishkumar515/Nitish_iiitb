@@ -695,9 +695,9 @@ In this design the 3-bit input number "a" is multiplied by 9 i.e.,(a*9) which ca
 
 ## 1.Combinational Optimisations
 The combinational Circuits optimising methods are as follows:
-Constant Propagation (Direct Optimisation)
-Boolean Logic Optimisation (using K-Map or Quine McCluskey method)
-1. Constant Propagation Illustration
+* Constant Propagation (Direct Optimisation)
+* Boolean Logic Optimisation (using K-Map or Quine McCluskey method)
+## A. Constant Propagation Illustration
 Consider the combinational circuit shown below :
 ![fig-1](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-1.png)
 The outputof logic circuit is Y = ((AB)+C)'. If A is always tied to ground i.e., A = 0, then the simplified expression will become to C'. In this case instead of having a AND gate and a NOR gate the circuit can be simplified by using a single NOT gate with C as its input. Even though both of then represent the same logic since the number of transistors used in the optimised design is less compared to that of the given circuit which shown in the above figure. The transistor level implementation of the given circuit and the optimised circuit is shown below:
@@ -705,7 +705,7 @@ The outputof logic circuit is Y = ((AB)+C)'. If A is always tied to ground i.e.,
 ![fig-2](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-2.png)
 * The optimized circuit will take 2 transistors only.
 * The reduction in the required number of transistors for designing, decreasing from 6 to 2 in the optimised design. This will result in reduced power consumption and occuppies less area.
-## 2.Boolean Logic Optimisation Illustration
+## B.Boolean Logic Optimisation Illustration
 Consider the verilog statement below :
 ```
 assign y = a?(b?c:(c?a:0)):(!c);
@@ -719,29 +719,29 @@ The optimised circuit is shown below:
 ![fig-4](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-4.jpg)
 ## 2. Sequential Optimisations
 The sequential logic optimisations techniques are broadly classified into two categories :
-1. Basic Techniques
-* Sequential Constant Propagation
-2. Advanced Techniques
+A. Basic Techniques
+a. Sequential Constant Propagation
+B. Advanced Techniques
   a. State Optimisation
   b. Retiming
   c. Sequential Logic Cloning (Floor aware Synthesis)
-### 1.Sequential Constant Propagation
+### a.Sequential Constant Propagation
 Consider the sequential circuit shown below :
 ![fig-5](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-5.jpg)
 * The D flip-flop shown in the figure is positive edge triggered with asynchronous reset and the data input D is always tied to the ground (i.e, low state or logic 0).
 * When reset is applied the output of the flop becomes low and if reset it deasserted the output of the flop still remains low.
 * Hence one of the input to the NAND gate is always low resulting in the output Y to be always in high stae (logic 1 or VDD).
 *  Hence the optimised version of this circuit is connecting the output port Y directly to VDD i.e., the supply voltage.
-## 2. State Optimisation
+## a. State Optimisation
 State optimization refers to the process of minimizing the number of unused states in a digital circuit's state machine.
-## 3.Sequential Logic Cloning
+## b.Sequential Logic Cloning
 Sequential logic cloning is used to replicate or clone a portion of a sequential logic circuit while maintaining its functionality and behavior.
 This technique is generally used when a physical aware synthesis is done.
 Consider the circuit shown below :
 ![fig-6]()
 Consider flop A has large positive slack. The flops B and C are far from flop A. Hence there will be a large routing delay from A to B and A to C. To avoid this flop A and the combinational logic 2 is replicated or cloned in the paths of B and C as shown in the figure below. Since flop A has large positive slack the delay introduced because of the cloning will be compensated and the further delay in the circuit is mainly depended on flop B and flop C.
 ![fig-7]()
-## 4. Retiming
+## c. Retiming
 * Retiming aims to optimize these factors by moving registers to appropriate locations within the circuit.
 * Retiming used to improve the performance interms of better timing characteristics by repositioning the registers (flip-flops) within the circuit without altering its functionality.
 * In a digital circuit, registers (flip-flops) are used to store intermediate results and control the flow of data. * The placement of these registers can significantly impact the circuit's overall performance, including its critical path delay, clock frequency, and power consumption.
@@ -760,16 +760,16 @@ Generating netlist steps :
 ```
 yosys
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
-read_verilog <opt_check3.v> 
-synth -top <opt_check3>
+read_verilog opt_check3.v
+synth -top opt_check3
 opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 show
 ```
 
 The synthesis result and the netlist are shown below :
-![fig-8]()
-![fig-9]()
+![fig-8](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check_t.png)
+![fig-9](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check3g.png)
 opt_clean -purge - remove unused cells and wires.
 
 
