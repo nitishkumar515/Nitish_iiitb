@@ -882,9 +882,9 @@ begin
 end
 endmodule
 ```
-![fig-51]()
+![fig-51](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/51.png)
 
-![fig52]()
+![fig52](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/52.png)
 ### Lab- incomplete overlapping Case
 Thie is an example of incomplete case where other two combinations 10 and 11 were not included. This is infer a latch for the multiplexer and connect i2 and i3 with the output.
 
@@ -899,9 +899,9 @@ module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg
 	end
 endmodule
 ```
-![fig-53]()
+![fig-53](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/53.png)
 
-![fig54]()
+![fig54](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/54.png)
 
 ### Example-2- Complete case
 ```
@@ -916,9 +916,9 @@ begin
 end
 endmodule
 ```
-![fig55]()
+![fig55](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/55.png)
 
-![fig56]()
+![fig56](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/56.png)
 ### For Loop and For Generate
 ### For Loop
 * For look is used in always block.
@@ -947,19 +947,9 @@ always @ (*)
 	end
 endmodule
 ```
-![fig57]()
+![fig57](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/57.png)
 
-![fig58]()
-
-
-
-
-
-
-
-
-
-
+![fig58](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-5/58.png)
 
 
 ## Acknowledgement
