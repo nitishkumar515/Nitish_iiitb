@@ -784,7 +784,9 @@ Since one of the inputs of the multiplexer is always connected to the ground it 
 ![fig-and](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/and.jpg)
 
 The synthesis result and the netlist are shown below :
+
 ![fig-opt-t](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check_t.png)
+
 ![fig optg](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_c.png)
 
 
