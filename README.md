@@ -967,3 +967,5 @@ endmodule
 - https://github.com/The-OpenROAD-Project/OpenSTA.git
 - https://github.com/kunalg123
 - https://www.vsdiat.com
+- https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop
+- https://openlane.readthedocs.io/en/latest/
