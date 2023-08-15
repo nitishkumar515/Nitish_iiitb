@@ -789,8 +789,8 @@ The synthesis result and the netlist are shown below :
 
 ![fig optg](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_c.png)
 
-# Day-4: Gate Level Simulation (GLS), Blocking Vs Non-blocking assignment and Synthesis-Simulation Mismatch
-## Gate Level Simulation
+## Day-4: Gate Level Simulation (GLS), Blocking Vs Non-blocking assignment and Synthesis-Simulation Mismatch
+### Gate Level Simulation
 
 
 
