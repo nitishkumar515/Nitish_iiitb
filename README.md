@@ -777,11 +777,11 @@ module opt_check (input a , input b , output y);
 endmodule
 ```
 The above code infers a multiplexer as shown below :
-![fig-mux]()
+![fig-mux](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/mux.jpg)
 
 Since one of the inputs of the multiplexer is always connected to the ground it will infer an AND gate on optimisation.
 
-![fig-and]()
+![fig-and](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/and.jpg)
 
 The synthesis result and the netlist are shown below :
 ![fig-opt-t]()
