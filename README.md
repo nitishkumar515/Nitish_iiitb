@@ -738,6 +738,7 @@ State optimization refers to the process of minimizing the number of unused stat
 Sequential logic cloning is used to replicate or clone a portion of a sequential logic circuit while maintaining its functionality and behavior.
 This technique is generally used when a physical aware synthesis is done.
 Consider the circuit shown below :
+
 ![fig-6](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-6.jpg)
 Consider flop A has large positive slack. The flops B and C are far from flop A. Hence there will be a large routing delay from A to B and A to C. To avoid this flop A and the combinational logic 2 is replicated or cloned in the paths of B and C as shown in the figure below. Since flop A has large positive slack the delay introduced because of the cloning will be compensated and the further delay in the circuit is mainly depended on flop B and flop C.
 ![fig-7](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-7.jpg)
@@ -747,6 +748,7 @@ Consider flop A has large positive slack. The flops B and C are far from flop A.
 * In a digital circuit, registers (flip-flops) are used to store intermediate results and control the flow of data. * The placement of these registers can significantly impact the circuit's overall performance, including its critical path delay, clock frequency, and power consumption.
 * Consider the circuit shown below :
 ![fig-8](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/fig-8.jpg)
+
 Consider the C-Q delay and set up time is 0ns. The combinational circuits have finite amount of the propagation delay. The maximum clock frequency with which the circuit operates depends on the propagation delay of the combinational logic. From flop A to B the propagation delay is 5ns and the maximum frequency with which this portion of circuit can be operated is 200MHz. Fom flop B to C the propagation delay is 2ns and the maximum frequency with which this portion of circuit can be operated is 500MHz. The effective frequency is minimum of the both which is 200MHz.
 
 Suppose some part of the logic from combinational circuit between flop B and C is placed with the combinational circuit between the flop A and flop B in such a way that the propagation delay of the circuit between flop A and flop is reduced while propagation delay between flop B and flop C is increased by a small amount as show below :
@@ -766,11 +768,12 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 show
 ```
-
 The synthesis result and the netlist are shown below :
 ![fig-8](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check_t.png)
 ![fig-9](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check3g.png)
-opt_clean -purge - remove unused cells and wires.
+```
+opt_clean -purge  (remove unused cells and wires)
+```
 
 
 
