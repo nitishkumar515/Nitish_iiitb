@@ -769,6 +769,28 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 show
 ```
+## Example 1
+The verilog code for the example 1 is given below :
+```
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule
+```
+The above code infers a multiplexer as shown below :
+![fig-mux]()
+
+Since one of the inputs of the multiplexer is always connected to the ground it will infer an AND gate on optimisation.
+
+![fig-and]()
+
+The synthesis result and the netlist are shown below :
+![fig-opt-t]()
+
+
+
+
+
+
 The synthesis result and the netlist are shown below :
 ![fig-8](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check_t.png)
 ![fig-9](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check3g.png)
