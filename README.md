@@ -790,7 +790,113 @@ The synthesis result and the netlist are shown below :
 ![fig optg](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_c.png)
 
 ## Day-4: Gate Level Simulation (GLS), Blocking Vs Non-blocking assignment and Synthesis-Simulation Mismatch
-### Gate Level Simulation
+### GLS, Synthesis-Simulation mismatch and Blocking, Non-blocking statements
+### Synthesis Simulation Mismatch
+There are three main reasons for Synthesis Simulation Mismatch:
+
+* Missing sensitivity list in always block
+* Blocking vs Non-Blocking Assignments
+* Non standard Verilog coding
+### Missing sensitivity list in always block:
+If the consider - Example-2, we can see the only sel is mentioned in the sensitivity list. During the simulation, the waveforms will resemble a latched output but the simulation of netlist will not infer this as the synthesizer will only look at the statements with in the procedural block and not the sensitivity list.
+
+As the synthesizer doen't look for sensitivity list and it looks only for the statements in procedural block, it infers correct circuit and if we simulate the netlist code, there will be a synthesis simulation mismatch.
+
+To avoid the synthesis and simulation mismatch. It is very important to check the behaviour of the circuit first and then match it with the expected output seen in simulation and make sure there are no synthesis and simulation mismatches. This is why we use GLS.
+### Blocking vs Non-Blocking Assignments:
+Blocking statements execute the statemetns in the order they are written inside the always block. Non-Blocking statements execute all the RHS and once always block is entered, the values are assigned to LHS. This will give mismatch as sometimes, improper use of blocking statements can create latches. Get to see at Example4
+### Lab- GLS Synth Sim Mismatch
+Example-1 There is no mismatch in this example as the netlist simulation and rtl simulation waveform are similar only
+```
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+	assign y = sel?i1:i0;
+endmodule
+```
+![fig-1]()
+
+![fig2]()
+
+## Day - 5 : If, case, for and for generate
+### Lab- Incomplete IF
+### Example 1
+This incomplete if construct forms a connection between i0 and output y i.e, D-latch with input as i1 and i0 will be the enable for it.
+```
+module incomp_if (input i0 , input i1 , input i2 , output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+end
+endmodule
+```
+![fig-1]()
+
+![fig2]()
+### Lab- incomplete overlapping Case
+Thie is an example of incomplete case where other two combinations 10 and 11 were not included. This is infer a latch for the multiplexer and connect i2 and i3 with the output.
+
+```
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+	always @ (*)
+	begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+	end
+endmodule
+```
+![fig-3]()
+
+![fig4]()
+
+### Example-2- Complete case
+```
+module comp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+		default : y = i2;
+	endcase
+end
+endmodule
+```
+![fig5]()
+
+![fig6]()
+### For Loop and For Generate
+### For Loop
+* For look is used in always block.
+* It is used for excecuting expressions alone.
+### Generate For loop
+* Generate for loop is used for instantaing hardware.
+* It should be used only outside always block.
+  
+For loop can be used to generate larger circuits like 256:1 multiplexer or 1-256 demultiplexer where the coding style of smaller mux is not feesible and can have human errors since we would need to include huge number of combinations.
+
+FOR Generate can be used to instantiate any number of sub modules with in a top module. For example, if we need a 32 bit ripple carry adder, instead of instantiating 32 full adders, we can write a generate for loop and connect the full adders appropriately.
+### Lab- For and For Generate
+### Example-1- Mux using generate
+Here for loop is used to design a 4:1 mux. This can also be written using case or if else block, however, for a large size mux, only for loop model is feasible.
+``` 
+module mux_generate (input i0 , input i1, input i2 , input i3 , input [1:0] sel  , output reg y);
+	wire [3:0] i_int;
+	assign i_int = {i3,i2,i1,i0};
+	integer k;
+always @ (*)
+	begin
+	for(k = 0; k < 4; k=k+1) begin
+		if(k == sel)
+		y = i_int[k];
+		end
+	end
+endmodule
+```
+![fig7]()
+
+![fig8]()
 
 
 
@@ -802,15 +908,19 @@ The synthesis result and the netlist are shown below :
 
 
 
-## References
-1.  https://yosyshq.net/yosys/
-2.  https://steveicarus.github.io/iverilog/
-3.  https://gtkwave.sourceforge.net/
-4.  https://ngspice.sourceforge.io/
-5.  https://github.com/The-OpenROAD-Project/OpenSTA
-6.  http://opencircuitdesign.com/magic/
-7.  https://github.com/The-OpenROAD-Project/OpenLane
-8.  https://www.eng.biu.ac.il/temanad/digital-vlsi-design/
-9.  https://yosyshq.readthedocs.io/projects/yosys/en/latest/cmd_ref.html
-10. https://www.youtube.com/watch?v=EczW2IWdnOM
-11. https://learn.digilentinc.com/Documents/277
+
+## Acknowledgement
+- Kunal Ghosh, VSD Corp. Pvt. Ltd.
+- Skywater Foundry
+- Alwin Shaju,colleague,IIITB 
+- Kanish R,Colleague,IIIT B
+- Nanditha Rao, Professor, IIITB 
+- Madhav Rao, Professor, IIITB
+- Manikandan,Professor,IIITB
+  
+## Reference 
+
+- https://github.com/YosysHQ/yosys.git
+- https://github.com/The-OpenROAD-Project/OpenSTA.git
+- https://github.com/kunalg123
+- https://www.vsdiat.com
