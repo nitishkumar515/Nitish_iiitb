@@ -799,7 +799,6 @@ The synthesis result and the netlist are shown below :
 
 
 
-
 ## References
 1.  https://yosyshq.net/yosys/
 2.  https://steveicarus.github.io/iverilog/
