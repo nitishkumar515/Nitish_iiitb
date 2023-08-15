@@ -772,9 +772,7 @@ show
 The synthesis result and the netlist are shown below :
 ![fig-8](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check_t.png)
 ![fig-9](https://github.com/nitishkumar515/Nitishkumar_iiitb/blob/main/images/Day-3/opt_check3g.png)
-```
-opt_clean -purge  (remove unused cells and wires)
-```
+
 
 
 
